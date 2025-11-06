@@ -1,0 +1,1 @@
+Follow README. Run docker compose up and show Swagger UI, then demo/demo_attack.py to simulate ransomware.
