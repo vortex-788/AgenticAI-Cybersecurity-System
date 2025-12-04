@@ -61,3 +61,15 @@ def process_alert(alert: Dict[str,Any]):
     db.add(aud)
     db.commit()
     db.close()
+
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+import os
+
+# Serve index.html at root
+@app.get("/")
+async def read_root():
+    # Get the directory where this file is located, then go up one level
+    base_dir = Path(__file__).parent.parent
+    index_path = base_dir / "index.html"
+    return FileResponse(index_path)
